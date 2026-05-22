@@ -1,14 +1,16 @@
 # Importación de funciones según la regla del TP (from modulo import funcion)
-from operaciones import registrar_usuario, depositar, extraer
-from historial import mostrar_historial, guardar_historial, cargar_historial
+from operaciones import registrar_usuario, depositar, extraer, guardar_historial, cargar_historial
+from historial import mostrar_historial
+
+historial = []
+
 
 def main():
     # Tarea 2: Inicializar la variable saldo
     saldo = 0.0
     
     # Tarea 3: Inicializar la lista vacía para el historial
-    historial = []
-    
+        
     print("¡Bienvenido a la Billetera Digital UAI!")
     
     # Opcional pero recomendado según las reglas generales (Funcionalidad 1)
@@ -35,14 +37,19 @@ def main():
         # Tarea 6 y 7: Controlar la opción y llamar a las funciones correspondientes
         if opcion == "1":
             # Pasamos saldo e historial y recibimos los valores actualizados
+            
+            global historial
+
             saldo, historial = depositar(saldo, historial)
+           
+            print("hhhhhhh",str(historial))
             
         elif opcion == "2":
             # Lo mismo para extraer
             saldo, historial = extraer(saldo, historial)
             
         elif opcion == "3":
-            mostrar_historial(historial)
+            mostrar_historial(historial, saldo)
             
         elif opcion == "4":
             guardar_historial(historial)

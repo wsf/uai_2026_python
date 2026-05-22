@@ -11,7 +11,10 @@ def registrar_usuario():
     return datos_usuario
 
 
-def deposite(balance, history):
+def depositar(balance, history):
+    
+    print ("h2 ", str(history))
+
     COMPARATION = 0 
     try:
         amount = float(input("Ingrese el monto a depositar: "))
@@ -24,8 +27,11 @@ def deposite(balance, history):
                 "type": "Depósito",
                 "amount": amount,
             }
-            history = []
+            #history = []
             history.append(movement)
+            
+            print ("h3 ", str(history))
+
             print(f"Depósito exitoso. Nuevo balance: {balance:.2f}")
             return balance, history
     except ValueError:
@@ -50,7 +56,7 @@ def extraer(saldo, historial):
         
         historial.append(movimiento)
         
-        print("Extracción exitosa. Retiró: ${monto}")
+        print(f"Extracción exitosa. Retiró: ${monto}")
         return saldo, historial
     else:
         print("Operación inválida o saldo insuficiente.")
