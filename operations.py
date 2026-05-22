@@ -19,4 +19,6 @@ def deposite(balance, history):
         print("Error: debe ingresar un número válido.")
         return balance, history
 
-deposite(1000, [])
+
+
+# deposite(1000, [])
